@@ -23,6 +23,8 @@ public class FileToBufferWriter {
                 buffer.getBuffer().put(readLine);
             }
             buffer.setAllTheFileWasStreamedToBuffer(true);
+            b.close();
+            System.out.println(buffer.getAllTheFileWasStreamedToBuffer());
 
         } catch( IOException | InterruptedException e)
         {

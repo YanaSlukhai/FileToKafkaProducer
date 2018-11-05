@@ -1,10 +1,15 @@
 package model;
 
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class FileEntriesBuffer {
-    private  ArrayBlockingQueue<String> buffer;
+    private LinkedBlockingQueue<String> buffer;
     private volatile Boolean allTheFileWasStreamedToBuffer = false;
+
+    public Boolean getAllTheFileWasStreamedToBuffer() {
+        return allTheFileWasStreamedToBuffer;
+    }
 
     public Boolean allTheFileWasStreamedToBuffer() {
         return allTheFileWasStreamedToBuffer;
@@ -14,11 +19,11 @@ public class FileEntriesBuffer {
         this.allTheFileWasStreamedToBuffer = allTheFileWasStreamedToBuffer;
     }
 
-    public FileEntriesBuffer(ArrayBlockingQueue<String> buffer) {
+    public FileEntriesBuffer(LinkedBlockingQueue<String> buffer) {
         this.buffer = buffer;
     }
 
-    public ArrayBlockingQueue<String> getBuffer() {
+    public LinkedBlockingQueue<String> getBuffer() {
         return buffer;
     }
 }
